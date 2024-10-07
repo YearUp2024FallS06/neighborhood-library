@@ -2,20 +2,28 @@ package com.pluralsight;
 
 public class Main {
 
+    public static Book[] Library;
 
 
     public static void main(String[] args) {
+        Library = GetInitializedLibrary();
+
+
         System.out.println("Hello world!");
 
-
+        DisplayBooks(Library);
 
     }
 
+    public static void DisplayBooks(Book[] books){
+        System.out.printf("%5s %55s %20s %24s\n" , "ID", "TITLE", "ISBN", "CHECKOUT OUT TO" );
+        System.out.println("-----------------------------------------------------------------------------------------------------------");
+        for(Book book : books){
+            System.out.printf("%5s %55s %20s %24s\n" , book.getId(), book.getTitle(), book.getISBN(), book.getCheckedOutTo());
+        }
+    }
 
-
-
-
-    public static Book[] getInitializedLibrary() {
+    public static Book[] GetInitializedLibrary() {
         Book[] library = new Book[20];
         library[0] = new Book(1, "Practical Tableau", "ISBN11332211");
         library[1] = new Book(2, "Pro Git", "ISBN1133229918");
@@ -37,7 +45,8 @@ public class Main {
         library[17] = new Book(18, "The Mythical Man-Month", "ISBN9780201835953");
         library[18] = new Book(19, "Learning JavaScript Data Structures and Algorithms", "ISBN9781785880332");
         library[19] = new Book(20, "The Elements of Programming Interviews", "ISBN9781512218237");
-
+        library[3].checkOut("Matt");
+        library[7].checkOut("Very Long Named John");
         return library;
     }
 
