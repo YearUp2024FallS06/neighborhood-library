@@ -13,6 +13,17 @@ public class Main {
 
         char option = PromptMainChoices();
 
+        if(option == 'A'){
+            //do available books display, offer to check one out.
+        } else if (option == 'C'){
+            // do checked out books display
+
+        }
+        else {
+            //this means X...
+
+        }
+
       //  System.out.println("Hello world!");
 
     //    DisplayBooks(Library);
