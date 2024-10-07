@@ -1,5 +1,7 @@
 package com.pluralsight;
 
+import javax.smartcardio.CommandAPDU;
+
 public class Main {
 
     public static Book[] Library;
@@ -22,7 +24,27 @@ public class Main {
         System.out.println("    Show [A]vailable Books");
         System.out.println("    Show [C]hecked Out Books");
         System.out.println("    E[X]it the Library");
-        System.out.println("Command [A, C, X]: ");
+
+        do{
+
+            System.out.print("Command [A, C, X]: ");
+            String command = Console.PromptForString();
+
+            if ( command.equalsIgnoreCase("A")){
+                return 'A';
+            }
+            if (command.equalsIgnoreCase("C")){
+                return 'C';
+            }
+            if (command.equalsIgnoreCase("X")
+                    || command.equalsIgnoreCase("EXIT")
+                    || command.equalsIgnoreCase("Q")
+                    || command.equalsIgnoreCase("QUIT")
+            ){
+                return 'X';
+            }
+        }  while (true);
+
 
     }
 

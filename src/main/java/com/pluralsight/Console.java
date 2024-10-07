@@ -11,6 +11,10 @@ public class Console {
         return scanner.nextLine();
     }
 
+    public static String PromptForString(){
+        return scanner.nextLine();
+    }
+
     public static boolean PromptForYesNo(String prompt){
         System.out.print(prompt + " ( Y for Yes, N for No ) ?");
         String userinput = scanner.nextLine();
