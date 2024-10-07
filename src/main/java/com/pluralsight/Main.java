@@ -9,17 +9,21 @@ public class Main {
         Library = GetInitializedLibrary();
 
 
-        System.out.println("Hello world!");
+        char option = PromptMainChoices();
 
-        DisplayBooks(Library);
+      //  System.out.println("Hello world!");
+
+    //    DisplayBooks(Library);
 
     }
 
-    public static void DisplayMainChoices(){
+    public static char PromptMainChoices(){
         System.out.println("Welcome to the Library!  Please select from the following choices:");
         System.out.println("    Show [A]vailable Books");
         System.out.println("    Show [C]hecked Out Books");
-        
+        System.out.println("    E[X]it the Library");
+        System.out.println("Command [A, C, X]: ");
+
     }
 
     public static void DisplayBooks(Book[] books){
