@@ -15,6 +15,13 @@ public class Main {
 
     }
 
+    public static void DisplayMainChoices(){
+        System.out.println("Welcome to the Library!  Please select from the following choices:");
+        System.out.println("    Show [A]vailable Books");
+        System.out.println("    Show [C]hecked Out Books");
+        
+    }
+
     public static void DisplayBooks(Book[] books){
         System.out.printf("%5s %55s %20s %24s\n" , "ID", "TITLE", "ISBN", "CHECKOUT OUT TO" );
         System.out.println("-----------------------------------------------------------------------------------------------------------");
@@ -45,6 +52,7 @@ public class Main {
         library[17] = new Book(18, "The Mythical Man-Month", "ISBN9780201835953");
         library[18] = new Book(19, "Learning JavaScript Data Structures and Algorithms", "ISBN9781785880332");
         library[19] = new Book(20, "The Elements of Programming Interviews", "ISBN9781512218237");
+        //todo: fix this data
         library[3].checkOut("Matt");
         library[7].checkOut("Very Long Named John");
         return library;
