@@ -8,27 +8,65 @@ public class Main {
 
 
     public static void main(String[] args) {
+
+
         Library = GetInitializedLibrary();
 
+        char option;
 
-        char option = PromptMainChoices();
+        do{
+            option = PromptMainChoices();
 
-        if(option == 'A'){
-            //do available books display, offer to check one out.
-        } else if (option == 'C'){
-            // do checked out books display
+            if(option == 'A'){
+                Book[] availableBooks = GetAvailableBooks(Library);
+                DisplayBooks(availableBooks);
+                //do available books display, offer to check one out.
+            } else if (option == 'C'){
+                Book[] checkedOutBooks = GetCheckedOutBooks(Library);
+                DisplayBooks(checkedOutBooks);
+                // do checked out books display
 
-        }
-        else {
-            //this means X...
+            }
 
-        }
+        } while (option != 'X');
+
 
       //  System.out.println("Hello world!");
 
     //    DisplayBooks(Library);
 
     }
+
+
+
+    public static Book[] GetAvailableBooks(Book[] books){
+        Book[] available = new Book[books.length];
+        int nextIndex = 0;
+        for(Book book : books){
+            if(!book.isCheckedOut()){
+                available[nextIndex++] = book;
+            }
+        }
+        Book[] results = new Book[nextIndex];
+        System.arraycopy(available,0,results,0,nextIndex);
+
+        return results;
+    }
+
+    public static Book[] GetCheckedOutBooks(Book[] books){
+        Book[] checkedout = new Book[books.length];
+        int nextIndex = 0;
+        for(Book book : books){
+            if(book.isCheckedOut()){
+                checkedout[nextIndex++] = book;
+            }
+        }
+        Book[] results = new Book[nextIndex];
+        System.arraycopy(checkedout,0,results,0,nextIndex);
+
+        return results;
+    }
+
 
     public static char PromptMainChoices(){
         System.out.println("Welcome to the Library!  Please select from the following choices:");
