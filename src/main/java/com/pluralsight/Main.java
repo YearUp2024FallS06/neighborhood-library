@@ -1,7 +1,5 @@
 package com.pluralsight;
 
-import javax.smartcardio.CommandAPDU;
-
 public class Main {
 
     public static Book[] Library;
